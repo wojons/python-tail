@@ -4,8 +4,8 @@ from distutils.core import setup
 
 setup(name='python-tail',
     description='Unix Tail follow implementation',
-    author='Kasun Herath',
-    author_email='kasunh01@gmail.com',
+    author='Alexis Okuwa',
+    author_email='alexisokuwa@gmail.com',
     py_modules=['tail'],
     )
 
