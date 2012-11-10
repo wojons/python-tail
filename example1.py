@@ -7,11 +7,17 @@ Prints recieved new lines to standard out '''
 
 import tail
 
-def print_line(txt, filename):
-    ''' Prints received text '''
-    print txt,
+history = {'filename' : ''}
 
-t = tail.Tail(['/var/log/apache2/access.log', '/var/log/syslog'])
+def print_line(txt, filename):
+	''' Prints received text '''
+	global history
+	if history['filename'] != filename:
+		txt = "===> "+filename+" <===\n"+txt
+		history['filename'] = filename
+	print txt.strip("\n")
+
+t = tail.Tail(['/var/log/syslog'])
 t.register_callback(print_line, 1)
 t.follow(s=1)
 

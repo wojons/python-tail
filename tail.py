@@ -80,9 +80,6 @@ class Tail(object):
 		if self.callback_mode == 0:
 			self.callback(line)
 		elif self.callback_mode == 1:
-			if self.last['filename'] != filename:
-				line = "===> "+filename+" <===\n"+line
-				self.last['filename'] = filename
 			self.callback(line, filename)
     
 	def register_callback(self, func, mode=0):
