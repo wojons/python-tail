@@ -19,7 +19,6 @@ def print_line(txt, filename):
 
 t = tail.Tail(['/var/log/syslog'])
 t.register_callback(print_line, 1)
-t.track_name(1)
 t.follow(10)
 
 
